@@ -207,6 +207,16 @@ pub(crate) fn complete_postfix(acc: &mut Completions, ctx: &CompletionContext) {
         ctx,
         cap,
         &dot_receiver,
+        "vec",
+        "vec![expr]",
+        &format!("vec![{}]", receiver_text),
+    )
+    .add_to(acc);
+
+    postfix_snippet(
+        ctx,
+        cap,
+        &dot_receiver,
         "dbg",
         "dbg!(expr)",
         &format!("dbg!({})", receiver_text),
@@ -336,6 +346,7 @@ fn main() {
                 sn ok    Ok(expr)
                 sn err   Err(expr)
                 sn some  Some(expr)
+                sn vec   vec![expr]
                 sn dbg   dbg!(expr)
                 sn dbgr  dbg!(&expr)
                 sn call  function(expr)
@@ -369,6 +380,7 @@ fn main() {
                 sn ok    Ok(expr)
                 sn err   Err(expr)
                 sn some  Some(expr)
+                sn vec   vec![expr]
                 sn dbg   dbg!(expr)
                 sn dbgr  dbg!(&expr)
                 sn call  function(expr)
@@ -393,6 +405,7 @@ fn main() {
                 sn ok    Ok(expr)
                 sn err   Err(expr)
                 sn some  Some(expr)
+                sn vec   vec![expr]
                 sn dbg   dbg!(expr)
                 sn dbgr  dbg!(&expr)
                 sn call  function(expr)
@@ -422,6 +435,7 @@ fn main() {
                 sn ok    Ok(expr)
                 sn err   Err(expr)
                 sn some  Some(expr)
+                sn vec   vec![expr]
                 sn dbg   dbg!(expr)
                 sn dbgr  dbg!(&expr)
                 sn call  function(expr)
